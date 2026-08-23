@@ -70,16 +70,22 @@ function displayWallpapers(list) {
             <div class="card-overlay">
 
                 <div class="card-top">
+
                     <span class="tag">
                         Wallpaper
                     </span>
+
                 </div>
+
 
                 <div class="card-bottom">
 
                     <div>
+
                         <h3>${wallpaper.title}</h3>
+
                     </div>
+
 
                     <a
                         href="${wallpaper.image}"
@@ -92,10 +98,13 @@ function displayWallpapers(list) {
                 </div>
 
             </div>
+
         `;
 
         container.appendChild(card);
+
     });
+
 }
 
 
@@ -103,16 +112,26 @@ function displayWallpapers(list) {
 document.getElementById("randomHero").addEventListener("click", () => {
 
     if (wallpapers.length === 0) {
+
         alert("No wallpapers found yet!");
+
         return;
+
     }
+
 
     const randomIndex =
         Math.floor(Math.random() * wallpapers.length);
 
-    const wallpaper = wallpapers[randomIndex];
+    const wallpaper =
+        wallpapers[randomIndex];
 
-    window.open(wallpaper.image, "_blank");
+
+    window.open(
+        wallpaper.image,
+        "_blank"
+    );
+
 });
 
 
