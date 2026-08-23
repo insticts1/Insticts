@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,6 +49,10 @@
             <a href="#categories">Categories</a>
 
             <a href="#about">About</a>
+
+            <a href="#account" id="accountButton">
+                👤 Account
+            </a>
 
         </nav>
 
@@ -293,7 +298,7 @@
 
 
 
-        <!-- WALLPAPERS AUTOMATICALLY APPEAR HERE -->
+        <!-- WALLPAPERS -->
 
         <section
             class="wallpaper-grid"
@@ -408,6 +413,87 @@
 
 
 
+    <!-- ACCOUNT MODAL -->
+
+    <div class="account-modal" id="accountModal">
+
+        <div class="account-box">
+
+            <button
+                class="account-close"
+                id="closeAccount">
+
+                ×
+
+            </button>
+
+
+            <div class="account-logo">
+
+                <span class="logo-mark">I</span>
+
+            </div>
+
+
+            <h2>
+
+                Welcome to INSTICTS
+
+            </h2>
+
+
+            <p id="accountMessage">
+
+                Create your account or login.
+
+            </p>
+
+
+            <input
+                type="email"
+                id="emailInput"
+                placeholder="Email"
+                autocomplete="email">
+
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Password"
+                autocomplete="current-password">
+
+
+            <button
+                class="primary-button account-action"
+                id="signupButton">
+
+                Create Account
+
+            </button>
+
+
+            <button
+                class="ghost-button account-action"
+                id="loginButton">
+
+                Login
+
+            </button>
+
+
+            <p class="account-note">
+
+                By creating an account, you can eventually post wallpapers,
+                comment, like and build your own profile.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
     <!-- FOOTER -->
 
     <footer>
@@ -438,10 +524,192 @@
 
 
 
-    <!-- JAVASCRIPT -->
+    <!-- SUPABASE -->
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+    <script src="supabase.js"></script>
+
     <script src="script.js"></script>
+
+
+    <!-- ACCOUNT JAVASCRIPT -->
+
+    <script>
+
+        const accountButton =
+            document.getElementById("accountButton");
+
+        const accountModal =
+            document.getElementById("accountModal");
+
+        const closeAccount =
+            document.getElementById("closeAccount");
+
+        const signupButton =
+            document.getElementById("signupButton");
+
+        const loginButton =
+            document.getElementById("loginButton");
+
+        const emailInput =
+            document.getElementById("emailInput");
+
+        const passwordInput =
+            document.getElementById("passwordInput");
+
+        const accountMessage =
+            document.getElementById("accountMessage");
+
+
+        // Open account window
+
+        accountButton.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            accountModal.classList.add("active");
+
+        });
+
+
+        // Close account window
+
+        closeAccount.addEventListener("click", () => {
+
+            accountModal.classList.remove("active");
+
+        });
+
+
+        // Close when clicking outside
+
+        accountModal.addEventListener("click", (event) => {
+
+            if (event.target === accountModal) {
+
+                accountModal.classList.remove("active");
+
+            }
+
+        });
+
+
+        // Create account
+
+        signupButton.addEventListener("click", async () => {
+
+            const email = emailInput.value.trim();
+
+            const password = passwordInput.value;
+
+
+            if (!email || !password) {
+
+                accountMessage.textContent =
+                    "Please enter your email and password.";
+
+                return;
+
+            }
+
+
+            if (password.length < 6) {
+
+                accountMessage.textContent =
+                    "Password must be at least 6 characters.";
+
+                return;
+
+            }
+
+
+            accountMessage.textContent =
+                "Creating your account...";
+
+
+            const { data, error } =
+                await supabaseClient.auth.signUp({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+            if (error) {
+
+                accountMessage.textContent =
+                    error.message;
+
+                return;
+
+            }
+
+
+            accountMessage.textContent =
+                "Account created! Check your email to verify your account.";
+
+        });
+
+
+        // Login
+
+        loginButton.addEventListener("click", async () => {
+
+            const email = emailInput.value.trim();
+
+            const password = passwordInput.value;
+
+
+            if (!email || !password) {
+
+                accountMessage.textContent =
+                    "Please enter your email and password.";
+
+                return;
+
+            }
+
+
+            accountMessage.textContent =
+                "Logging in...";
+
+
+            const { data, error } =
+                await supabaseClient.auth.signInWithPassword({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+            if (error) {
+
+                accountMessage.textContent =
+                    error.message;
+
+                return;
+
+            }
+
+
+            accountMessage.textContent =
+                "Login successful!";
+
+
+            setTimeout(() => {
+
+                accountModal.classList.remove("active");
+
+            }, 1000);
+
+        });
+
+    </script>
 
 </body>
 
