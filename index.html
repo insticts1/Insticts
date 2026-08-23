@@ -21,11 +21,9 @@
 
 </head>
 
-
 <body>
 
     <div class="bg-glow glow-one"></div>
-
     <div class="bg-glow glow-two"></div>
 
 
@@ -58,13 +56,10 @@
 
 
         <a class="nav-button" href="#wallpapers">
-
             Explore ↗
-
         </a>
 
     </header>
-
 
 
     <main>
@@ -105,16 +100,12 @@
                 <div class="hero-actions">
 
                     <a class="primary-button" href="#wallpapers">
-
                         Explore Wallpapers →
-
                     </a>
 
 
                     <button class="ghost-button" id="randomHero">
-
                         Surprise me ✦
-
                     </button>
 
                 </div>
@@ -153,7 +144,6 @@
             </div>
 
 
-
             <!-- HERO ART -->
 
             <div class="hero-art">
@@ -181,7 +171,6 @@
         </section>
 
 
-
         <!-- WALLPAPER TOOLBAR -->
 
         <section class="toolbar" id="wallpapers">
@@ -189,16 +178,11 @@
             <div>
 
                 <div class="section-kicker">
-
                     THE COLLECTION
-
                 </div>
 
-
                 <h2>
-
                     Find your next background.
-
                 </h2>
 
             </div>
@@ -241,61 +225,39 @@
         </section>
 
 
-
         <!-- CATEGORIES -->
 
         <section class="chips" id="categories">
 
             <button class="chip active" data-category="All">
-
                 All
-
             </button>
-
 
             <button class="chip" data-category="Nature">
-
                 🌿 Nature
-
             </button>
-
 
             <button class="chip" data-category="Cars">
-
                 🏎 Cars
-
             </button>
-
 
             <button class="chip" data-category="Anime">
-
                 ✨ Anime
-
             </button>
-
 
             <button class="chip" data-category="Space">
-
                 🌌 Space
-
             </button>
-
 
             <button class="chip" data-category="Minimal">
-
                 ◼ Minimal
-
             </button>
 
-
             <button class="chip" data-category="Abstract">
-
                 🌀 Abstract
-
             </button>
 
         </section>
-
 
 
         <!-- WALLPAPERS -->
@@ -307,24 +269,18 @@
         </section>
 
 
-
-        <!-- ABOUT SECTION -->
+        <!-- ABOUT -->
 
         <section class="about" id="about">
 
             <div>
 
                 <div class="section-kicker">
-
                     ABOUT INSTICTS
-
                 </div>
 
-
                 <h2>
-
                     Built for people who want their screens to stand out.
-
                 </h2>
 
             </div>
@@ -339,9 +295,7 @@
 
         </section>
 
-
     </main>
-
 
 
     <!-- WALLPAPER PREVIEW MODAL -->
@@ -375,9 +329,7 @@
                     <span
                         class="modal-category"
                         id="modalCategory">
-
                     </span>
-
 
                     <h3 id="modalTitle"></h3>
 
@@ -412,7 +364,6 @@
     </div>
 
 
-
     <!-- ACCOUNT MODAL -->
 
     <div class="account-modal" id="accountModal">
@@ -436,16 +387,12 @@
 
 
             <h2>
-
                 Welcome to INSTICTS
-
             </h2>
 
 
             <p id="accountMessage">
-
                 Create your account or login.
-
             </p>
 
 
@@ -481,17 +428,28 @@
             </button>
 
 
+            <!-- LOGOUT BUTTON -->
+
+            <button
+                class="ghost-button account-action"
+                id="logoutButton"
+                style="display:none;">
+
+                Logout
+
+            </button>
+
+
             <p class="account-note">
 
-                By creating an account, you can eventually post wallpapers,
-                comment, like and build your own profile.
+                Create an account to eventually save favorites,
+                build your profile, comment and more.
 
             </p>
 
         </div>
 
     </div>
-
 
 
     <!-- FOOTER -->
@@ -508,20 +466,15 @@
 
 
         <span>
-
             Made for beautiful screens.
-
         </span>
 
 
         <span>
-
             © 2026 INSTICTS
-
         </span>
 
     </footer>
-
 
 
     <!-- SUPABASE -->
@@ -535,273 +488,37 @@
 
     <!-- ACCOUNT JAVASCRIPT -->
 
-   <!-- ACCOUNT JAVASCRIPT -->
+    <script>
 
-<script>
+        const accountButton =
+            document.getElementById("accountButton");
 
-    const accountButton =
-        document.getElementById("accountButton");
+        const accountModal =
+            document.getElementById("accountModal");
 
-    const accountModal =
-        document.getElementById("accountModal");
+        const closeAccount =
+            document.getElementById("closeAccount");
 
-    const closeAccount =
-        document.getElementById("closeAccount");
+        const signupButton =
+            document.getElementById("signupButton");
 
-    const signupButton =
-        document.getElementById("signupButton");
+        const loginButton =
+            document.getElementById("loginButton");
 
-    const loginButton =
-        document.getElementById("loginButton");
+        const logoutButton =
+            document.getElementById("logoutButton");
 
-    const emailInput =
-        document.getElementById("emailInput");
+        const emailInput =
+            document.getElementById("emailInput");
 
-    const passwordInput =
-        document.getElementById("passwordInput");
+        const passwordInput =
+            document.getElementById("passwordInput");
 
-    const accountMessage =
-        document.getElementById("accountMessage");
+        const accountMessage =
+            document.getElementById("accountMessage");
 
 
-    // Open account window
-    accountButton.addEventListener("click", (event) => {
-
-        event.preventDefault();
-
-        accountModal.classList.add("active");
-
-    });
-
-
-    // Close account window
-    closeAccount.addEventListener("click", () => {
-
-        accountModal.classList.remove("active");
-
-    });
-
-
-    // Close when clicking outside
-    accountModal.addEventListener("click", (event) => {
-
-        if (event.target === accountModal) {
-
-            accountModal.classList.remove("active");
-
-        }
-
-    });
-
-
-    // CREATE ACCOUNT
-    signupButton.addEventListener("click", async () => {
-
-        const email =
-            emailInput.value.trim();
-
-        const password =
-            passwordInput.value;
-
-
-        if (!email || !password) {
-
-            accountMessage.textContent =
-                "Please enter your email and password.";
-
-            return;
-
-        }
-
-
-        if (password.length < 6) {
-
-            accountMessage.textContent =
-                "Password must be at least 6 characters.";
-
-            return;
-
-        }
-
-
-        accountMessage.textContent =
-            "Creating your account...";
-
-
-        try {
-
-            const { data, error } =
-                await supabaseClient.auth.signUp({
-
-                    email: email,
-
-                    password: password
-
-                });
-
-
-            if (error) {
-
-                accountMessage.textContent =
-                    error.message;
-
-                return;
-
-            }
-
-
-            accountMessage.textContent =
-                "✅ Account created! Check your email to verify your account.";
-
-
-            emailInput.value = "";
-            passwordInput.value = "";
-
-
-        } catch (error) {
-
-            console.error(error);
-
-            accountMessage.textContent =
-                "Something went wrong. Please try again.";
-
-        }
-
-    });
-
-
-    // LOGIN
-    loginButton.addEventListener("click", async () => {
-
-        const email =
-            emailInput.value.trim();
-
-        const password =
-            passwordInput.value;
-
-
-        if (!email || !password) {
-
-            accountMessage.textContent =
-                "Please enter your email and password.";
-
-            return;
-
-        }
-
-
-        accountMessage.textContent =
-            "Logging in...";
-
-
-        try {
-
-            const { data, error } =
-                await supabaseClient.auth.signInWithPassword({
-
-                    email: email,
-
-                    password: password
-
-                });
-
-
-            if (error) {
-
-                accountMessage.textContent =
-                    error.message;
-
-                return;
-
-            }
-
-
-            accountMessage.textContent =
-                "✅ Login successful!";
-
-
-            updateAccountButton(data.user);
-
-
-            setTimeout(() => {
-
-                accountModal.classList.remove("active");
-
-            }, 1000);
-
-
-        } catch (error) {
-
-            console.error(error);
-
-            accountMessage.textContent =
-                "Something went wrong. Please try again.";
-
-        }
-
-    });
-
-
-    // UPDATE ACCOUNT BUTTON
-    function updateAccountButton(user) {
-
-        if (user) {
-
-            accountButton.innerHTML =
-                "👤 " + user.email;
-
-        } else {
-
-            accountButton.innerHTML =
-                "👤 Account";
-
-        }
-
-    }
-
-
-    // CHECK IF USER IS ALREADY LOGGED IN
-    async function checkLogin() {
-
-        const { data } =
-            await supabaseClient.auth.getSession();
-
-        if (data.session) {
-
-            updateAccountButton(data.session.user);
-
-        } else {
-
-            updateAccountButton(null);
-
-        }
-
-    }
-
-
-    // Listen for login/logout changes
-    supabaseClient.auth.onAuthStateChange(
-        (event, session) => {
-
-            if (session) {
-
-                updateAccountButton(session.user);
-
-            } else {
-
-                updateAccountButton(null);
-
-            }
-
-        }
-    );
-
-
-    // Start account check
-    checkLogin();
-
-</script>
-        // Open account window
+        /* OPEN ACCOUNT */
 
         accountButton.addEventListener("click", (event) => {
 
@@ -809,10 +526,12 @@
 
             accountModal.classList.add("active");
 
+            showCurrentUser();
+
         });
 
 
-        // Close account window
+        /* CLOSE ACCOUNT */
 
         closeAccount.addEventListener("click", () => {
 
@@ -821,7 +540,7 @@
         });
 
 
-        // Close when clicking outside
+        /* CLOSE OUTSIDE */
 
         accountModal.addEventListener("click", (event) => {
 
@@ -834,13 +553,15 @@
         });
 
 
-        // Create account
+        /* CREATE ACCOUNT */
 
         signupButton.addEventListener("click", async () => {
 
-            const email = emailInput.value.trim();
+            const email =
+                emailInput.value.trim();
 
-            const password = passwordInput.value;
+            const password =
+                passwordInput.value;
 
 
             if (!email || !password) {
@@ -867,39 +588,58 @@
                 "Creating your account...";
 
 
-            const { data, error } =
-                await supabaseClient.auth.signUp({
+            try {
 
-                    email: email,
+                const { data, error } =
+                    await supabaseClient.auth.signUp({
 
-                    password: password
+                        email: email,
 
-                });
+                        password: password
+
+                    });
 
 
-            if (error) {
+                if (error) {
+
+                    accountMessage.textContent =
+                        error.message;
+
+                    return;
+
+                }
+
 
                 accountMessage.textContent =
-                    error.message;
+                    "✅ Account created! Check your email to verify your account.";
 
-                return;
+
+                emailInput.value = "";
+
+                passwordInput.value = "";
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                accountMessage.textContent =
+                    "Something went wrong. Please try again.";
 
             }
-
-
-            accountMessage.textContent =
-                "Account created! Check your email to verify your account.";
 
         });
 
 
-        // Login
+        /* LOGIN */
 
         loginButton.addEventListener("click", async () => {
 
-            const email = emailInput.value.trim();
+            const email =
+                emailInput.value.trim();
 
-            const password = passwordInput.value;
+            const password =
+                passwordInput.value;
 
 
             if (!email || !password) {
@@ -916,14 +656,66 @@
                 "Logging in...";
 
 
-            const { data, error } =
-                await supabaseClient.auth.signInWithPassword({
+            try {
 
-                    email: email,
+                const { data, error } =
+                    await supabaseClient.auth.signInWithPassword({
 
-                    password: password
+                        email: email,
 
-                });
+                        password: password
+
+                    });
+
+
+                if (error) {
+
+                    accountMessage.textContent =
+                        error.message;
+
+                    return;
+
+                }
+
+
+                accountMessage.textContent =
+                    "✅ Login successful!";
+
+
+                updateAccountButton(data.user);
+
+                updateAccountWindow(data.user);
+
+
+                setTimeout(() => {
+
+                    accountModal.classList.remove("active");
+
+                }, 1000);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                accountMessage.textContent =
+                    "Something went wrong. Please try again.";
+
+            }
+
+        });
+
+
+        /* LOGOUT */
+
+        logoutButton.addEventListener("click", async () => {
+
+            accountMessage.textContent =
+                "Logging out...";
+
+
+            const { error } =
+                await supabaseClient.auth.signOut();
 
 
             if (error) {
@@ -936,17 +728,134 @@
             }
 
 
+            updateAccountButton(null);
+
+            updateAccountWindow(null);
+
             accountMessage.textContent =
-                "Login successful!";
-
-
-            setTimeout(() => {
-
-                accountModal.classList.remove("active");
-
-            }, 1000);
+                "You have been logged out.";
 
         });
+
+
+        /* UPDATE NAVIGATION */
+
+        function updateAccountButton(user) {
+
+            if (user) {
+
+                accountButton.textContent =
+                    "👤 " + user.email;
+
+            } else {
+
+                accountButton.textContent =
+                    "👤 Account";
+
+            }
+
+        }
+
+
+        /* UPDATE ACCOUNT WINDOW */
+
+        function updateAccountWindow(user) {
+
+            if (user) {
+
+                accountMessage.textContent =
+                    "Logged in as " + user.email;
+
+                signupButton.style.display =
+                    "none";
+
+                loginButton.style.display =
+                    "none";
+
+                logoutButton.style.display =
+                    "block";
+
+                emailInput.style.display =
+                    "none";
+
+                passwordInput.style.display =
+                    "none";
+
+            } else {
+
+                signupButton.style.display =
+                    "block";
+
+                loginButton.style.display =
+                    "block";
+
+                logoutButton.style.display =
+                    "none";
+
+                emailInput.style.display =
+                    "block";
+
+                passwordInput.style.display =
+                    "block";
+
+            }
+
+        }
+
+
+        /* CHECK EXISTING LOGIN */
+
+        async function showCurrentUser() {
+
+            const { data } =
+                await supabaseClient.auth.getSession();
+
+
+            if (data.session) {
+
+                updateAccountButton(
+                    data.session.user
+                );
+
+                updateAccountWindow(
+                    data.session.user
+                );
+
+            } else {
+
+                updateAccountButton(null);
+
+                updateAccountWindow(null);
+
+            }
+
+        }
+
+
+        /* LISTEN FOR LOGIN CHANGES */
+
+        supabaseClient.auth.onAuthStateChange(
+            (event, session) => {
+
+                if (session) {
+
+                    updateAccountButton(
+                        session.user
+                    );
+
+                } else {
+
+                    updateAccountButton(null);
+
+                }
+
+            }
+        );
+
+
+        /* CHECK LOGIN WHEN WEBSITE OPENS */
+
+        showCurrentUser();
 
     </script>
 
