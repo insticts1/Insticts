@@ -1298,3 +1298,35 @@ footer {
 
     line-height: 1.5;
 }
+/* ================================
+   MOBILE NAVIGATION FIX
+================================ */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 15px 18px;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .navbar nav {
+        display: flex;
+        gap: 14px;
+        width: 100%;
+        order: 3;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+
+    .navbar nav a {
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+}
