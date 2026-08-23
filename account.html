@@ -19,6 +19,140 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <style>
+
+        .account-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .account-dashboard {
+            width: 100%;
+        }
+
+        .account-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .account-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .account-header h1 {
+            margin: 5px 0;
+        }
+
+        .account-header p {
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .account-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .account-card {
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .account-card-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .account-card h2 {
+            margin: 0 0 10px;
+        }
+
+        .account-card p {
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+
+        .account-page-button {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .profile-form {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .profile-form.active {
+            display: block;
+        }
+
+        .profile-form input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: white;
+            font-size: 15px;
+        }
+
+        .profile-form button {
+            width: 100%;
+        }
+
+        .account-page-message {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .danger-card {
+            border-color: rgba(255,80,80,0.3);
+        }
+
+        .danger-button {
+            width: 100%;
+            padding: 13px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,80,80,0.4);
+            background: rgba(255,80,80,0.1);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+
+            .account-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .account-header {
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -44,7 +178,7 @@
 
         <nav>
 
-            <a href="index.html">
+            <a href="index.html#wallpapers">
                 Wallpapers
             </a>
 
@@ -61,21 +195,17 @@
     </header>
 
 
-    <!-- ACCOUNT PAGE -->
+    <!-- ACCOUNT -->
 
     <main class="account-page">
 
         <section class="account-dashboard">
 
 
-            <!-- HEADER -->
-
             <div class="account-header">
 
                 <div class="account-avatar">
-
                     👤
-
                 </div>
 
 
@@ -90,15 +220,13 @@
                     </h1>
 
                     <p id="userEmail">
-                        Loading account...
+                        Loading...
                     </p>
 
                 </div>
 
             </div>
 
-
-            <!-- ACCOUNT CARDS -->
 
             <div class="account-grid">
 
@@ -116,8 +244,9 @@
                     </h2>
 
                     <p>
-                        Manage your personal information.
+                        Change your username and manage your profile.
                     </p>
+
 
                     <button
                         class="primary-button account-page-button"
@@ -127,10 +256,32 @@
 
                     </button>
 
+
+                    <div
+                        class="profile-form"
+                        id="profileForm">
+
+                        <input
+                            type="text"
+                            id="usernameInput"
+                            placeholder="Username"
+                            maxlength="30">
+
+
+                        <button
+                            class="primary-button"
+                            id="saveProfileButton">
+
+                            Save Profile
+
+                        </button>
+
+                    </div>
+
                 </div>
 
 
-                <!-- FAVORITES -->
+                <!-- SAVED -->
 
                 <div class="account-card">
 
@@ -143,7 +294,7 @@
                     </h2>
 
                     <p>
-                        View wallpapers you have saved.
+                        Wallpapers you have saved will appear here.
                     </p>
 
                     <button
@@ -197,7 +348,7 @@
                     </h2>
 
                     <p>
-                        Share your own wallpaper with INSTICTS.
+                        Upload your own wallpapers to INSTICTS.
                     </p>
 
                     <button
@@ -211,7 +362,7 @@
                 </div>
 
 
-                <!-- SECURITY -->
+                <!-- PASSWORD -->
 
                 <div class="account-card">
 
@@ -224,7 +375,7 @@
                     </h2>
 
                     <p>
-                        Manage your password and account security.
+                        Manage your account password.
                     </p>
 
                     <button
@@ -251,7 +402,7 @@
                     </h2>
 
                     <p>
-                        Sign out of your INSTICTS account.
+                        Sign out of your account.
                     </p>
 
                     <button
@@ -265,7 +416,7 @@
                 </div>
 
 
-                <!-- DELETE ACCOUNT -->
+                <!-- DELETE -->
 
                 <div class="account-card danger-card">
 
@@ -282,7 +433,7 @@
                     </p>
 
                     <button
-                        class="danger-button account-page-button"
+                        class="danger-button"
                         id="deleteAccountButton">
 
                         Delete Account
@@ -293,8 +444,6 @@
 
             </div>
 
-
-            <!-- MESSAGE -->
 
             <div
                 class="account-page-message"
@@ -315,9 +464,10 @@
     <script src="supabase.js"></script>
 
 
-    <!-- ACCOUNT SCRIPT -->
-
     <script>
+
+        let currentUser = null;
+
 
         const welcomeTitle =
             document.getElementById("welcomeTitle");
@@ -328,38 +478,25 @@
         const message =
             document.getElementById("accountPageMessage");
 
-        const logoutButton =
-            document.getElementById("logoutButton");
+        const usernameInput =
+            document.getElementById("usernameInput");
 
-        const deleteAccountButton =
-            document.getElementById("deleteAccountButton");
-
-
-        let currentUser = null;
+        const profileForm =
+            document.getElementById("profileForm");
 
 
-        // LOAD ACCOUNT
+        /* LOAD USER */
 
-        async function loadAccount() {
+        async function loadUser() {
 
             const { data, error } =
                 await supabaseClient.auth.getSession();
 
 
-            if (error) {
+            if (error || !data.session) {
 
-                console.error(error);
-
-                window.location.href = "index.html";
-
-                return;
-
-            }
-
-
-            if (!data.session) {
-
-                window.location.href = "index.html";
+                window.location.href =
+                    "index.html";
 
                 return;
 
@@ -378,14 +515,121 @@
                 "Welcome back!";
 
 
+            loadProfile();
+
         }
 
 
-        // LOGOUT
+        /* LOAD PROFILE */
 
-        logoutButton.addEventListener(
-            "click",
-            async () => {
+        async function loadProfile() {
+
+            const { data, error } =
+                await supabaseClient
+                    .from("profiles")
+                    .select("username, avatar_url")
+                    .eq("id", currentUser.id)
+                    .single();
+
+
+            if (error) {
+
+                console.error(error);
+
+                return;
+
+            }
+
+
+            if (data.username) {
+
+                usernameInput.value =
+                    data.username;
+
+            }
+
+        }
+
+
+        /* EDIT PROFILE */
+
+        document
+            .getElementById("editProfileButton")
+            .addEventListener("click", () => {
+
+                profileForm.classList.toggle("active");
+
+            });
+
+
+        /* SAVE PROFILE */
+
+        document
+            .getElementById("saveProfileButton")
+            .addEventListener("click", async () => {
+
+                const username =
+                    usernameInput.value.trim();
+
+
+                if (!username) {
+
+                    message.textContent =
+                        "Please enter a username.";
+
+                    return;
+
+                }
+
+
+                if (username.length < 3) {
+
+                    message.textContent =
+                        "Username must be at least 3 characters.";
+
+                    return;
+
+                }
+
+
+                message.textContent =
+                    "Saving profile...";
+
+
+                const { error } =
+                    await supabaseClient
+                        .from("profiles")
+                        .update({
+
+                            username: username
+
+                        })
+                        .eq("id", currentUser.id);
+
+
+                if (error) {
+
+                    console.error(error);
+
+                    message.textContent =
+                        error.message;
+
+                    return;
+
+                }
+
+
+                message.textContent =
+                    "✅ Profile saved successfully.";
+
+            });
+
+
+        /* LOGOUT */
+
+        document
+            .getElementById("logoutButton")
+            .addEventListener("click", async () => {
 
                 message.textContent =
                     "Logging out...";
@@ -408,23 +652,70 @@
                 window.location.href =
                     "index.html";
 
-            }
-        );
+            });
 
 
-        // DELETE ACCOUNT
+        /* SAVED */
 
-        deleteAccountButton.addEventListener(
-            "click",
-            async () => {
+        document
+            .getElementById("favoritesButton")
+            .addEventListener("click", () => {
 
-                const confirmation =
+                message.textContent =
+                    "Saved wallpapers will be added next.";
+
+            });
+
+
+        /* UPLOADS */
+
+        document
+            .getElementById("uploadsButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Your uploads will be added next.";
+
+            });
+
+
+        /* UPLOAD */
+
+        document
+            .getElementById("uploadButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Wallpaper uploading will be added next.";
+
+            });
+
+
+        /* PASSWORD */
+
+        document
+            .getElementById("passwordButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Password changing will be added next.";
+
+            });
+
+
+        /* DELETE ACCOUNT */
+
+        document
+            .getElementById("deleteAccountButton")
+            .addEventListener("click", () => {
+
+                const confirmDelete =
                     confirm(
-                        "Are you sure you want to permanently delete your INSTICTS account?"
+                        "Are you sure? This will permanently delete your account."
                     );
 
 
-                if (!confirmation) {
+                if (!confirmDelete) {
 
                     return;
 
@@ -432,75 +723,14 @@
 
 
                 message.textContent =
-                    "Account deletion will be added securely in the next step.";
-
-            }
-        );
-
-
-        // PROFILE
-
-        document
-            .getElementById("editProfileButton")
-            .addEventListener("click", () => {
-
-                message.textContent =
-                    "Profile editing is coming next.";
+                    "Account deletion will be connected securely later.";
 
             });
 
 
-        // FAVORITES
+        /* START */
 
-        document
-            .getElementById("favoritesButton")
-            .addEventListener("click", () => {
-
-                message.textContent =
-                    "Your saved wallpapers will appear here.";
-
-            });
-
-
-        // UPLOADS
-
-        document
-            .getElementById("uploadsButton")
-            .addEventListener("click", () => {
-
-                message.textContent =
-                    "Your uploaded wallpapers will appear here.";
-
-            });
-
-
-        // UPLOAD
-
-        document
-            .getElementById("uploadButton")
-            .addEventListener("click", () => {
-
-                message.textContent =
-                    "Wallpaper uploading is coming next.";
-
-            });
-
-
-        // PASSWORD
-
-        document
-            .getElementById("passwordButton")
-            .addEventListener("click", () => {
-
-                message.textContent =
-                    "Password changing is coming next.";
-
-            });
-
-
-        // START
-
-        loadAccount();
+        loadUser();
 
     </script>
 
