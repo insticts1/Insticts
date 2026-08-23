@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSTICTS | Premium Wallpapers</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <div class="bg-glow glow-one"></div>
+
+    <div class="bg-glow glow-two"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+
+        <a class="logo" href="#">
+
+            <span class="logo-mark">I</span>
+
+            <span>INSTICTS</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#wallpapers">Wallpapers</a>
+
+            <a href="#categories">Categories</a>
+
+            <a href="#about">About</a>
+
+        </nav>
+
+
+        <a class="nav-button" href="#wallpapers">
+
+            Explore ↗
+
+        </a>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <div class="hero-copy">
+
+                <div class="eyebrow">
+
+                    <span></span>
+
+                    PREMIUM WALLPAPERS
+
+                </div>
+
+
+                <h1>
+
+                    Make your screen
+
+                    <em>feel different.</em>
+
+                </h1>
+
+
+                <p>
+
+                    Discover beautiful wallpapers, download them in high quality,
+                    and share your favorites with anyone.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a class="primary-button" href="#wallpapers">
+
+                        Explore Wallpapers →
+
+                    </a>
+
+
+                    <button class="ghost-button" id="randomHero">
+
+                        Surprise me ✦
+
+                    </button>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div>
+
+                        <strong id="wallpaperCount">0</strong>
+
+                        <span>Wallpapers</span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>4K</strong>
+
+                        <span>Quality Ready</span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>∞</strong>
+
+                        <span>Inspiration</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HERO ART -->
+
+            <div class="hero-art">
+
+                <div class="hero-card card-back"></div>
+
+                <div class="hero-card card-middle"></div>
+
+                <div class="hero-card card-front">
+
+                    <div class="hero-sun"></div>
+
+                    <div class="hero-mountain"></div>
+
+                    <div class="hero-label">
+
+                        INSTICTS / 01
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- WALLPAPER TOOLBAR -->
+
+        <section class="toolbar" id="wallpapers">
+
+            <div>
+
+                <div class="section-kicker">
+
+                    THE COLLECTION
+
+                </div>
+
+
+                <h2>
+
+                    Find your next background.
+
+                </h2>
+
+            </div>
+
+
+            <div class="controls">
+
+                <label class="search">
+
+                    <span>⌕</span>
+
+                    <input
+                        id="searchInput"
+                        type="search"
+                        placeholder="Search wallpapers...">
+
+                </label>
+
+
+                <select id="categoryFilter">
+
+                    <option value="All">All</option>
+
+                    <option value="Nature">Nature</option>
+
+                    <option value="Cars">Cars</option>
+
+                    <option value="Anime">Anime</option>
+
+                    <option value="Space">Space</option>
+
+                    <option value="Minimal">Minimal</option>
+
+                    <option value="Abstract">Abstract</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CATEGORIES -->
+
+        <section class="chips" id="categories">
+
+            <button class="chip active" data-category="All">
+
+                All
+
+            </button>
+
+
+            <button class="chip" data-category="Nature">
+
+                🌿 Nature
+
+            </button>
+
+
+            <button class="chip" data-category="Cars">
+
+                🏎 Cars
+
+            </button>
+
+
+            <button class="chip" data-category="Anime">
+
+                ✨ Anime
+
+            </button>
+
+
+            <button class="chip" data-category="Space">
+
+                🌌 Space
+
+            </button>
+
+
+            <button class="chip" data-category="Minimal">
+
+                ◼ Minimal
+
+            </button>
+
+
+            <button class="chip" data-category="Abstract">
+
+                🌀 Abstract
+
+            </button>
+
+        </section>
+
+
+
+        <!-- WALLPAPERS AUTOMATICALLY APPEAR HERE -->
+
+        <section
+            class="wallpaper-grid"
+            id="wallpaperGrid">
+
+        </section>
+
+
+
+        <!-- ABOUT SECTION -->
+
+        <section class="about" id="about">
+
+            <div>
+
+                <div class="section-kicker">
+
+                    ABOUT INSTICTS
+
+                </div>
+
+
+                <h2>
+
+                    Built for people who want their screens to stand out.
+
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                INSTICTS is a clean, fast wallpaper gallery where people can
+                discover, download, favorite and share beautiful wallpapers.
+
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- WALLPAPER PREVIEW MODAL -->
+
+    <div class="modal" id="previewModal">
+
+        <div class="modal-backdrop" data-close></div>
+
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                data-close>
+
+                ×
+
+            </button>
+
+
+            <img
+                id="modalImage"
+                src=""
+                alt="">
+
+
+            <div class="modal-info">
+
+                <div>
+
+                    <span
+                        class="modal-category"
+                        id="modalCategory">
+
+                    </span>
+
+
+                    <h3 id="modalTitle"></h3>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        class="primary-button small"
+                        id="modalDownload">
+
+                        Download ↓
+
+                    </button>
+
+
+                    <button
+                        class="ghost-button small"
+                        id="modalShare">
+
+                        Share ↗
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="logo">
+
+            <span class="logo-mark">I</span>
+
+            <span>INSTICTS</span>
+
+        </div>
+
+
+        <span>
+
+            Made for beautiful screens.
+
+        </span>
+
+
+        <span>
+
+            © 2026 INSTICTS
+
+        </span>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
