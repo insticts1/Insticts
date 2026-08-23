@@ -1330,3 +1330,35 @@ footer {
     }
 
 }
+/* FINAL MOBILE NAVIGATION FIX */
+
+@media (max-width: 680px) {
+
+    nav {
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    nav a {
+        flex-shrink: 0;
+        font-size: 12px;
+    }
+
+    .navbar {
+        height: auto;
+        min-height: 78px;
+        padding: 12px 18px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+}
