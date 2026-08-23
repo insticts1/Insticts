@@ -1330,31 +1330,39 @@ footer {
     }
 
 }
-/* FINAL MOBILE NAVIGATION FIX */
+/* HORIZONTAL MOBILE NAVIGATION */
 
 @media (max-width: 680px) {
+
+    .navbar {
+        height: 78px;
+        min-height: 78px;
+        padding: 0 12px;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        overflow-x: auto;
+    }
+
+    .navbar .logo {
+        flex-shrink: 0;
+        font-size: 13px;
+    }
 
     nav {
         display: flex !important;
         align-items: center;
         gap: 12px;
+        width: auto;
+        flex: 1;
         overflow-x: auto;
         white-space: nowrap;
-        width: 100%;
-        padding: 8px 0;
+        padding: 0;
     }
 
     nav a {
         flex-shrink: 0;
         font-size: 12px;
-    }
-
-    .navbar {
-        height: auto;
-        min-height: 78px;
-        padding: 12px 18px;
-        flex-wrap: wrap;
-        gap: 10px;
     }
 
     .nav-button {
