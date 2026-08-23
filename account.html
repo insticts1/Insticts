@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Account | INSTICTS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <div class="bg-glow glow-one"></div>
+
+    <div class="bg-glow glow-two"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+
+        <a class="logo" href="index.html">
+
+            <span class="logo-mark">I</span>
+
+            <span>INSTICTS</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Wallpapers
+            </a>
+
+            <a href="index.html#categories">
+                Categories
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ACCOUNT PAGE -->
+
+    <main class="account-page">
+
+        <section class="account-dashboard">
+
+
+            <!-- HEADER -->
+
+            <div class="account-header">
+
+                <div class="account-avatar">
+
+                    👤
+
+                </div>
+
+
+                <div>
+
+                    <div class="section-kicker">
+                        MY ACCOUNT
+                    </div>
+
+                    <h1 id="welcomeTitle">
+                        Welcome
+                    </h1>
+
+                    <p id="userEmail">
+                        Loading account...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCOUNT CARDS -->
+
+            <div class="account-grid">
+
+
+                <!-- PROFILE -->
+
+                <div class="account-card">
+
+                    <div class="account-card-icon">
+                        👤
+                    </div>
+
+                    <h2>
+                        Profile
+                    </h2>
+
+                    <p>
+                        Manage your personal information.
+                    </p>
+
+                    <button
+                        class="primary-button account-page-button"
+                        id="editProfileButton">
+
+                        Edit Profile
+
+                    </button>
+
+                </div>
+
+
+                <!-- FAVORITES -->
+
+                <div class="account-card">
+
+                    <div class="account-card-icon">
+                        ❤️
+                    </div>
+
+                    <h2>
+                        Saved Wallpapers
+                    </h2>
+
+                    <p>
+                        View wallpapers you have saved.
+                    </p>
+
+                    <button
+                        class="ghost-button account-page-button"
+                        id="favoritesButton">
+
+                        View Saved
+
+                    </button>
+
+                </div>
+
+
+                <!-- UPLOADS -->
+
+                <div class="account-card">
+
+                    <div class="account-card-icon">
+                        🖼️
+                    </div>
+
+                    <h2>
+                        My Uploads
+                    </h2>
+
+                    <p>
+                        Manage wallpapers you have uploaded.
+                    </p>
+
+                    <button
+                        class="ghost-button account-page-button"
+                        id="uploadsButton">
+
+                        My Wallpapers
+
+                    </button>
+
+                </div>
+
+
+                <!-- UPLOAD -->
+
+                <div class="account-card">
+
+                    <div class="account-card-icon">
+                        ⬆️
+                    </div>
+
+                    <h2>
+                        Upload Wallpaper
+                    </h2>
+
+                    <p>
+                        Share your own wallpaper with INSTICTS.
+                    </p>
+
+                    <button
+                        class="primary-button account-page-button"
+                        id="uploadButton">
+
+                        Upload
+
+                    </button>
+
+                </div>
+
+
+                <!-- SECURITY -->
+
+                <div class="account-card">
+
+                    <div class="account-card-icon">
+                        🔐
+                    </div>
+
+                    <h2>
+                        Security
+                    </h2>
+
+                    <p>
+                        Manage your password and account security.
+                    </p>
+
+                    <button
+                        class="ghost-button account-page-button"
+                        id="passwordButton">
+
+                        Change Password
+
+                    </button>
+
+                </div>
+
+
+                <!-- LOGOUT -->
+
+                <div class="account-card">
+
+                    <div class="account-card-icon">
+                        🚪
+                    </div>
+
+                    <h2>
+                        Logout
+                    </h2>
+
+                    <p>
+                        Sign out of your INSTICTS account.
+                    </p>
+
+                    <button
+                        class="ghost-button account-page-button"
+                        id="logoutButton">
+
+                        Logout
+
+                    </button>
+
+                </div>
+
+
+                <!-- DELETE ACCOUNT -->
+
+                <div class="account-card danger-card">
+
+                    <div class="account-card-icon">
+                        ❌
+                    </div>
+
+                    <h2>
+                        Delete Account
+                    </h2>
+
+                    <p>
+                        Permanently delete your INSTICTS account.
+                    </p>
+
+                    <button
+                        class="danger-button account-page-button"
+                        id="deleteAccountButton">
+
+                        Delete Account
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div
+                class="account-page-message"
+                id="accountPageMessage">
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+
+    <!-- ACCOUNT SCRIPT -->
+
+    <script>
+
+        const welcomeTitle =
+            document.getElementById("welcomeTitle");
+
+        const userEmail =
+            document.getElementById("userEmail");
+
+        const message =
+            document.getElementById("accountPageMessage");
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+        const deleteAccountButton =
+            document.getElementById("deleteAccountButton");
+
+
+        let currentUser = null;
+
+
+        // LOAD ACCOUNT
+
+        async function loadAccount() {
+
+            const { data, error } =
+                await supabaseClient.auth.getSession();
+
+
+            if (error) {
+
+                console.error(error);
+
+                window.location.href = "index.html";
+
+                return;
+
+            }
+
+
+            if (!data.session) {
+
+                window.location.href = "index.html";
+
+                return;
+
+            }
+
+
+            currentUser =
+                data.session.user;
+
+
+            userEmail.textContent =
+                currentUser.email;
+
+
+            welcomeTitle.textContent =
+                "Welcome back!";
+
+
+        }
+
+
+        // LOGOUT
+
+        logoutButton.addEventListener(
+            "click",
+            async () => {
+
+                message.textContent =
+                    "Logging out...";
+
+
+                const { error } =
+                    await supabaseClient.auth.signOut();
+
+
+                if (error) {
+
+                    message.textContent =
+                        error.message;
+
+                    return;
+
+                }
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+
+        // DELETE ACCOUNT
+
+        deleteAccountButton.addEventListener(
+            "click",
+            async () => {
+
+                const confirmation =
+                    confirm(
+                        "Are you sure you want to permanently delete your INSTICTS account?"
+                    );
+
+
+                if (!confirmation) {
+
+                    return;
+
+                }
+
+
+                message.textContent =
+                    "Account deletion will be added securely in the next step.";
+
+            }
+        );
+
+
+        // PROFILE
+
+        document
+            .getElementById("editProfileButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Profile editing is coming next.";
+
+            });
+
+
+        // FAVORITES
+
+        document
+            .getElementById("favoritesButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Your saved wallpapers will appear here.";
+
+            });
+
+
+        // UPLOADS
+
+        document
+            .getElementById("uploadsButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Your uploaded wallpapers will appear here.";
+
+            });
+
+
+        // UPLOAD
+
+        document
+            .getElementById("uploadButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Wallpaper uploading is coming next.";
+
+            });
+
+
+        // PASSWORD
+
+        document
+            .getElementById("passwordButton")
+            .addEventListener("click", () => {
+
+                message.textContent =
+                    "Password changing is coming next.";
+
+            });
+
+
+        // START
+
+        loadAccount();
+
+    </script>
+
+
+</body>
+
+</html>
